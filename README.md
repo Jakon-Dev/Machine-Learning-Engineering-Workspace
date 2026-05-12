@@ -74,5 +74,5 @@ This roadmap follows a progression from foundational concepts to advanced autono
 - `02_unsupervised_learning/`: Pattern discovery in unlabeled data.
 - `03_deep_learning/`: Neural network architectures and applications.
 - `04_reinforcement_learning/`: Agent-based learning environments.
-- `docs/`: Comprehensive documentation and notes (Obsidian/GitHub compatible).
+- `docs/`: Comprehensive documentation and notes (Obsidian/GitHub compatible) - [[Home]].
 - `requirements.txt`: Core ML stack (NumPy, Pandas, Scikit-learn, etc.).

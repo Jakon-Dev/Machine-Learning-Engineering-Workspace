@@ -8,10 +8,10 @@ tags: [ml, learning, documentation]
 Welcome to the documentation for my Machine Learning learning path. This repository tracks my progress from foundational supervised learning to complex unsupervised algorithms.
 
 ## Navigation
-- [[01_supervised_learning/README|Supervised Learning]]
-- [[02_unsupervised_learning/README|Unsupervised Learning]]
-- [[03_deep_learning/README|Deep Learning]]
-- [[04_reinforcement_learning/README|Reinforcement Learning]]
+- [[Supervised_Learning|Supervised Learning]]
+- [[Unsupervised_Learning|Unsupervised Learning]]
+- [[Deep_Learning|Deep Learning]]
+- [[Reinforcement_Learning|Reinforcement Learning]]
 
 ## Repository Overview
 This workspace is designed for a Computer Engineer with a solid programming background to master ML concepts through hands-on practice.
