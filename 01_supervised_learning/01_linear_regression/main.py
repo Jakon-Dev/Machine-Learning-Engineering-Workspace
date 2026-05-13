@@ -43,16 +43,16 @@ class SimpleLinearRegressionModel:
         
         return self.m * x + self.b
 
-def build_sample_model():
+def build_sample_model(isSimple: bool = True):
     df = get_data_set("nba_player_stats_2026.csv")
     x = df['MIN']
     y = df['FGM']
+    if isSimple:
+        slrm = SimpleLinearRegressionModel()
+        slrm.train(x, y)
 
-    slrm = SimpleLinearRegressionModel()
-    slrm.train(x, y)
-
-    prediction = slrm.predict(x=300)
-    print(f"Predicted FGM for 300 MIN: {prediction:.2f}")
+        prediction = slrm.predict(x=300)
+        print(f"Predicted FGM for 300 MIN: {prediction:.2f}")
 
 if __name__ == '__main__':
     build_sample_model()
