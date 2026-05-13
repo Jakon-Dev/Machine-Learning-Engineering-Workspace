@@ -29,7 +29,7 @@ def print_chart():
     ax.plot(x, m*x + b, color='green')
     plt.show()
 
-class LinearRegressionModel:
+class SimpleLinearRegressionModel:
     def __init__(self):
         self.m = None
         self.b = None
@@ -48,10 +48,10 @@ def build_sample_model():
     x = df['MIN']
     y = df['FGM']
 
-    lrm = LinearRegressionModel()
-    lrm.train(x, y)
+    slrm = SimpleLinearRegressionModel()
+    slrm.train(x, y)
 
-    prediction = lrm.predict(x=300)
+    prediction = slrm.predict(x=300)
     print(f"Predicted FGM for 300 MIN: {prediction:.2f}")
 
 if __name__ == '__main__':
