@@ -1,32 +1,58 @@
 import sys
 import os
+import numpy as np
+import matplotlib.pyplot as plt
+
 # Add the project root to sys.path to allow importing the utils module
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 # IMPORT MODULES
 from utils.dataset import get_data_set, print_pretty_df
 
+def print_chart():
+    # LOAD DATA
+    df = get_data_set("nba_player_stats_2026.csv")
 
-import numpy as np
-import matplotlib.pyplot as plt
+    print_pretty_df(df.head(10))
 
-# LOAD DATA
-df = get_data_set(r"nba_player_stats_2026.csv")
+    # make data
+    x = df['MIN']
+    y = df['FGM']
 
-print_pretty_df(df.head(10))
+    # plot
+    fig, ax = plt.subplots()
+    ax.scatter(x, y)
 
-# make data
-x = df['MIN']
-y = df['FGM']
+    m, b = np.polyfit(x, y, 1)
 
-# plot
-fig, ax = plt.subplots()
+    # draw line
+    ax.plot(x, m*x + b, color='green')
+    plt.show()
 
-ax.scatter(x, y)
+class LinearRegressionModel:
+    def __init__(self):
+        self.m = None
+        self.b = None
 
-m, b = np.polyfit(x, y, 1)
+    def train(self, x, y):
+        self.m, self.b = np.polyfit(x, y, 1)
+    
+    def predict(self, x):
+        if self.m is None or self.b is None:
+            raise ValueError("The model must be trained before calling predict.")
+        
+        return self.m * x + self.b
 
-# draw line
-ax.plot(x, m*x + b, color='green')
+def build_sample_model():
+    df = get_data_set("nba_player_stats_2026.csv")
+    x = df['MIN']
+    y = df['FGM']
 
-plt.show()
+    lrm = LinearRegressionModel()
+    lrm.train(x, y)
+
+    prediction = lrm.predict(x=300)
+    print(f"Predicted FGM for 300 MIN: {prediction:.2f}")
+
+if __name__ == '__main__':
+    build_sample_model()
